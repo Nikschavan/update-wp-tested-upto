@@ -18,7 +18,7 @@ echo $STABLE_TAG
 
 git checkout -b "update-tested-upto-$LATEST_WP"
 
-sed -i "s/Tested up to: $STABLE_TAG/$LATEST_WP/" "$GITHUB_WORKSPACE"/readme.txt
+sed -i "s/Tested up to: $STABLE_TAG/Tested up to: $LATEST_WP/" "$GITHUB_WORKSPACE"/readme.txt
 
 # sh -c "git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty \
 #       && git push -u origin update-tested-upto-$LATEST_WP"
