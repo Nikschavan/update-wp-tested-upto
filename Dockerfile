@@ -10,11 +10,11 @@ LABEL version="1.0.0"
 LABEL repository="https://github.com/Nikschavan/update-wp-tested-upto"
 
 RUN apt-get update \
-	&& apt-get install -y subversion rsync git \
+	&& apt-get install -y jq git \
 	&& apt-get clean -y \
 	&& rm -rf /var/lib/apt/lists/* \
-	&& git config --global user.email "bsfbot+github@bsf.io" \
-	&& git config --global user.name "BSF Bot on GitHub"
+	&& git config --global user.email "update-tested-upto-wp@bsf.io" \
+	&& git config --global user.name "Update Tested upto Bot on GitHub"
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
