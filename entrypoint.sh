@@ -7,12 +7,10 @@ set -eo
 API_URL=https://api.wordpress.org/core/version-check/1.7/
 LATEST_WP=$(curl $API_URL | jq .offers[0].version | sed 's/"//g')
 
-echo $LATEST_WP
-
 cd $GITHUB_WORKSPACE
 
-git config --global user.email 'update-tested-upto-wp@bsf.io'
-git config --global user.name 'Update Tested upto Bot on GitHub'
+git config --global user.name ${GITHUB_ACTOR}
+git config --global user.email ${GITHUB_ACTOR}@users.noreply.github.com
 
 echo $LATEST_WP
 STABLE_TAG=$(grep -m 1 "^Tested up to:" "$GITHUB_WORKSPACE/readme.txt" | tr -d '\r\n' | awk -F ' ' '{print $NF}')
