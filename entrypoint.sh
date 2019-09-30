@@ -20,5 +20,7 @@ git checkout -b "update-tested-upto-$LATEST_WP"
 
 sed -i "s/Tested up to: $STABLE_TAG/Tested up to: $LATEST_WP/" "$GITHUB_WORKSPACE"/readme.txt
 
-# sh -c "git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty \
-#       && git push -u origin update-tested-upto-$LATEST_WP"
+git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
+
+git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty
+git push -u origin update-tested-upto-$LATEST_WP
