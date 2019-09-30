@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eo
+set -e
 
 API_URL=https://api.wordpress.org/core/version-check/1.7/
 LATEST_WP=$(curl $API_URL | jq .offers[0].version | sed 's/"//g')
