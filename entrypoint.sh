@@ -14,6 +14,7 @@ STABLE_TAG=$(grep -m 1 "^Tested up to:" "$GITHUB_WORKSPACE/readme.txt" | tr -d '
 echo $STABLE_TAG
 
 DESTINATION_BRANCH="update-tested-upto-$LATEST_WP"
+SOURCE_BRANCH='master';
 
 git checkout -b $DESTINATION_BRANCH
 
