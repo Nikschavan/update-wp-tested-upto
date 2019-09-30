@@ -16,7 +16,7 @@ echo $LATEST_WP
 STABLE_TAG=$(grep -m 1 "^Tested up to:" "$GITHUB_WORKSPACE/readme.txt" | tr -d '\r\n' | awk -F ' ' '{print $NF}')
 echo $STABLE_TAG
 
-git checkout -b 'update-tested-upto-$LATEST_WP'
+git checkout -b "update-tested-upto-$LATEST_WP"
 
 sed -i "s/Tested up to: $STABLE_TAG/$LATEST_WP/" "$GITHUB_WORKSPACE"/readme.txt
 
