@@ -59,3 +59,6 @@ else
     curl -sSL -H "$AUTH_HEADER" -H "$HEADER" --user "$GITHUB_ACTOR" -X POST --data "$DATA" $PULLS_URL
     echo $?
 fi
+
+curl -i -H "Authorization: token $GITHUB_TOKEN" \
+    https://api.github.com/user
