@@ -24,7 +24,7 @@ git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHU
 # git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty
 # git push -u origin $DESTINATION_BRANCH
 
-export GITHUB_USER="$GITHUB_ACTOR"
+export GITHUB_USER=$GITHUB_ACTOR
 
 INPUT_PR_TITLE="Update WP Tested up to to Version $LATEST_WP"
 INPUT_PR_BODY="Update Tested up to"
@@ -47,5 +47,3 @@ COMMAND="hub pull-request \
 
 echo "$COMMAND"
 sh -c "$COMMAND"
-
-printenv
