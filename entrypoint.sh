@@ -22,30 +22,5 @@ sed -i "s/Tested up to: $STABLE_TAG/Tested up to: $LATEST_WP/" "$GITHUB_WORKSPAC
 
 git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY"
 
-# git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty
-# git push -u origin $DESTINATION_BRANCH
-
-export GITHUB_USER=$GITHUB_ACTOR
-
-INPUT_PR_TITLE="Update WP Tested up to to Version $LATEST_WP"
-INPUT_PR_BODY="Update Tested up to"
-
-PR_ARG="$INPUT_PR_TITLE"
-if [[ ! -z "$PR_ARG" ]]; then
-  PR_ARG="-m \"$PR_ARG\""
-
-  if [[ ! -z "$INPUT_PR_BODY" ]]; then
-    PR_ARG="$PR_ARG -m \"$INPUT_PR_BODY\""
-  fi
-fi
-
-COMMAND="hub pull-request \
-  -b $DESTINATION_BRANCH \
-  -h $SOURCE_BRANCH \
-  -p \
-  --no-edit \
-  $PR_ARG \
-  || true"
-
-echo "$COMMAND"
-sh -c "$COMMAND"
+git add -A && git commit -m 'Updated WordPress tested upto to latest WP version by bsf-bot' --allow-empty
+git push -u origin $DESTINATION_BRANCH
